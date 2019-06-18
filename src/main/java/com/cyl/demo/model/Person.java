@@ -12,7 +12,7 @@ public class Person {
     }
 
     public void info(){
-        System.out.println(">> name: "+name+", age: "+age);
+        System.out.println(">> info: {name: "+name+", age: "+age+"}");
     }
 
 }

@@ -1,6 +1,8 @@
 import com.cyl.demo.model.Car;
+import org.junit.Test;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -44,6 +46,29 @@ public class ReflectTest {
         System.out.println(">> current loader: "+ classLoader);
         System.out.println(">> parent loader: " + classLoader.getParent());
         System.out.println(">> grandparent loader: "+ classLoader.getParent().getParent());
+    }
+
+    /**
+     *通过反射调用私有方法 和 私有变量
+     */
+    @Test
+    public void testPrivateReflect() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        Class clazz = loader.loadClass("com.cyl.demo.model.Car");
+
+        Constructor cons = clazz.getDeclaredConstructor(null);
+        Car car = (Car) cons.newInstance(null);
+
+        //取消java语言访问检查  以访问私有变量
+        Field brand = clazz.getDeclaredField("brand");
+        brand.setAccessible(true);
+        brand.set(car, "bwm");
+
+        // 回复java语言访问检查
+        brand.setAccessible(false);
+
+        car.info();
     }
 
 
