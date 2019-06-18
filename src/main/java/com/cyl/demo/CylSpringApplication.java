@@ -1,24 +1,28 @@
 package com.cyl.demo;
 
-import com.cyl.demo.model.Person;
-import com.sun.org.apache.bcel.internal.util.ClassPath;
-import com.sun.xml.internal.bind.v2.util.XmlFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 
 public class CylSpringApplication {
+    private static final String CLASSPATH_PREFIX = "classpath:";
+    private static final String FILE_PATH = "springAppContext.xml";
 
-    public static void main(String[] args) {
+    private static final String config = CLASSPATH_PREFIX+FILE_PATH;
 
-        /* bean 标签的属性 id name class parent scope abstract:boolean lazy-init:boolean autowire depends-on
-         *  autowire-candidate:boolean primary:boolean init-method destroy-method factory-method factory-bean
-         *
-         * bean 标签的子标签
-         *
-         * ioc 注入类型 构造方法注入，setter注入，接口注入
-         *
-         */
+    public static BeanFactory getBeanFactory(){
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        Resource resource = resolver.getResource(config);
+
+        DefaultListableBeanFactory bf = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(bf);
+
+        reader.loadBeanDefinitions(resource);
+
+        return  bf;
 
     }
 }

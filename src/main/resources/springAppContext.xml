@@ -9,4 +9,10 @@
         <property name="age" value="12" />
         <property name="name" value="caoyulong" />
     </bean>
+
+    <bean id="beanLifecycleDemo" init-method="myInit" destroy-method="myDestroy" class="com.cyl.demo.beanLifecycle4BeanFactory.BeanLifecycleDemo">
+        <property name="name" value="caoyulong" />
+    </bean>
+
+
 </beans>

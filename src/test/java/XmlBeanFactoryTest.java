@@ -1,3 +1,5 @@
+import com.alibaba.fastjson.JSON;
+import com.cyl.demo.beanLifecycle4BeanFactory.BeanLifecycleDemo;
 import com.cyl.demo.model.Car;
 import com.cyl.demo.model.Person;
 import org.junit.Test;
@@ -22,6 +24,15 @@ public class XmlBeanFactoryTest {
     private static final String CLASSPATH_PREFIX = "classpath:";
     private static final String FILE_PATH = "springAppContext.xml";
 
+    /* bean 标签的属性 id name class parent scope abstract:boolean lazy-init:boolean autowire depends-on
+     *  autowire-candidate:boolean primary:boolean init-method destroy-method factory-method factory-bean
+     *
+     * bean 标签的子标签
+     *
+     * ioc 注入类型 构造方法注入，setter注入，接口注入
+     *
+     */
+
     @Test
     public void testXmlBeanFactoryTest() throws IOException {
 
@@ -45,9 +56,12 @@ public class XmlBeanFactoryTest {
 
         System.out.println(">> Init BeanFactory");
 
-        Person person = bf.getBean("person", Person.class);
-        System.out.println(">> car bean is read for use");
-        person.info();
+//        Person person = bf.getBean("person", Person.class);
+//        System.out.println(">> car bean is read for use");
+//        person.info();
+
+        BeanLifecycleDemo bean = bf.getBean(BeanLifecycleDemo.class);
+        bean.info();
 
     }
 }
