@@ -1,8 +1,9 @@
-import com.alibaba.fastjson.JSON;
+package ioc;
+
 import com.cyl.demo.CylSpringApplication;
-import com.cyl.demo.beanLifecycle4BeanFactory.BeanLifecycleDemo;
-import com.cyl.demo.beanLifecycle4BeanFactory.MyBeanPostProcesser;
-import com.cyl.demo.beanLifecycle4BeanFactory.MyInstantiationAwareBeanPostProcesser;
+import com.cyl.demo.beanLifecycleINBeanFactory.BeanLifecycleDemo;
+import com.cyl.demo.beanLifecycleINBeanFactory.MyBeanPostProcesser;
+import com.cyl.demo.beanLifecycleINBeanFactory.MyInstantiationAwareBeanPostProcesser;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -29,7 +30,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
  *  13>  (Singleton)调用 + DisposableBean的destroy
  *  14> (Singleton)调用destroy-method的属性配置的方法
  */
-public class BeanLifeCycleTest {
+public class BeanLifeCycleInBeanFactoryTest {
 
     /**
      * 测试bean的生命周期

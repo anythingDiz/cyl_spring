@@ -6,9 +6,14 @@ import lombok.Data;
 public class Person {
     Integer age;
     String name;
+    private Cat cat;
 
     public void say(){
         System.out.println(">> hello");
+    }
+
+    public Cat getCat() {
+        return cat;
     }
 
     public void info(){

@@ -1,4 +1,4 @@
-package com.cyl.demo.beanLifecycle4BeanFactory;
+package com.cyl.demo.beanLifecycleINBeanFactory;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;

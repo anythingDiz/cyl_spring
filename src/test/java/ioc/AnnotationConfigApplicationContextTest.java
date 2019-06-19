@@ -1,3 +1,5 @@
+package ioc;
+
 import com.cyl.demo.config.BeanConfig;
 import com.cyl.demo.model.Car;
 import org.junit.Test;

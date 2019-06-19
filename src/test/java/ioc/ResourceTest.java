@@ -1,3 +1,5 @@
+package ioc;
+
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;

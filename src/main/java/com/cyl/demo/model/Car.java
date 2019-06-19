@@ -7,12 +7,12 @@ import lombok.Data;
 public class Car {
     private String brand;
     private String color;
-    private int maxSpeed;
+    private Integer maxSpeed;
 
     public Car() {
     }
 
-    public Car(String brand, String color, int maxSpeed) {
+    public Car(String brand, String color, Integer maxSpeed) {
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;

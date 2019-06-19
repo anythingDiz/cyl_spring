@@ -1,14 +1,10 @@
-import com.alibaba.fastjson.JSON;
-import com.cyl.demo.beanLifecycle4BeanFactory.BeanLifecycleDemo;
-import com.cyl.demo.model.Car;
-import com.cyl.demo.model.Person;
+package ioc;
+
+import com.cyl.demo.beanLifecycleINBeanFactory.BeanLifecycleDemo;
 import org.junit.Test;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 

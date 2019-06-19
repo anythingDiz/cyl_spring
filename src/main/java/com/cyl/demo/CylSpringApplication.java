@@ -1,5 +1,8 @@
 package com.cyl.demo;
 
+import com.alibaba.fastjson.JSON;
+import com.cyl.demo.model.Cat;
+import com.cyl.demo.model.Person;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
@@ -13,6 +16,7 @@ public class CylSpringApplication {
 
     private static final String config = CLASSPATH_PREFIX+FILE_PATH;
 
+    //获取BeanFactory
     public static BeanFactory getBeanFactory(){
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource resource = resolver.getResource(config);
@@ -23,6 +27,15 @@ public class CylSpringApplication {
         reader.loadBeanDefinitions(resource);
 
         return  bf;
+    }
 
+    public static void main(String[] args) {
+        Person person =(Person) getBeanFactory().getBean("person");
+        Cat cat = person.getCat();
+        Cat cat1 = person.getCat();
+
+        System.out.println(cat);
+        System.out.println(cat1);
+        System.out.println(cat.equals(cat1));
     }
 }
