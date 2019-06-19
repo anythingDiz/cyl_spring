@@ -25,4 +25,13 @@ public class PropertyEditorTest {
      *
      *
      */
+
+    /**
+     * Srping 的属性编辑器和传统的用于IDE开发时的属性编辑器不同,他们没有ui界面,仅负责将配置文件中的文本配置值的
+     * 转化为Bean 属性的对应值
+     *
+     * Spring的大部分默认属性编辑器都直接扩展于java.bean.PropertyEditorSupport
+     * Spring环境下属性编辑器功能单一,仅需要将配置文件中的字面值转化为属性类型的对象即可,并不需要提供ui界面,因此仅
+     * 需要简单的覆盖setAsText方法
+     */
 }
