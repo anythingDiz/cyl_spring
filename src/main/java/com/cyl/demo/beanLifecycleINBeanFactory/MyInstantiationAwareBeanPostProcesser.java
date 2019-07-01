@@ -4,6 +4,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 
+import java.beans.PropertyDescriptor;
+
 public class MyInstantiationAwareBeanPostProcesser extends InstantiationAwareBeanPostProcessorAdapter {
 
     //在实例化bean之前调用
@@ -33,10 +35,9 @@ public class MyInstantiationAwareBeanPostProcesser extends InstantiationAwareBea
 
 
     //在设置某个属性的时候调用
+
     @Override
-    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
-
-
+    public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
         //只对beanLifeCycleDemo 的bean进行处理
         if(bean instanceof BeanLifecycleDemo){
             System.out.println(">> 调用InstantiationAwareBeanPostProcesser.postProcessProperties()");
@@ -44,6 +45,5 @@ public class MyInstantiationAwareBeanPostProcesser extends InstantiationAwareBea
 
         return pvs;
     }
-
 
 }
