@@ -37,3 +37,12 @@ spring采用动态代理织入，而AspectJ采用编译织入和类装载织入
 # JDK动态代理
  jdk1.3后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例.
  jdk的动态代理主要涉及java.lang.reflect包中的两个类Proxy和InvocationHandler.
+ 
+ # spring增强
+ * BeforeAdvice,前置增强
+ * AfterReturningAdvice， 后置增强
+ * MethodInterceptor，环绕增强
+ * ThrowsAdvice，异常增强
+ * IntroductionInterceptor, 环绕增强
+ 
+ 
