@@ -17,6 +17,7 @@ import java.io.IOException;
  * @Date 2019/6/18
  */
 public class XmlBeanFactoryTest {
+    private String name;
     private static final String CLASSPATH_PREFIX = "classpath:";
     private static final String FILE_PATH = "springAppContext.xml";
 
@@ -57,7 +58,9 @@ public class XmlBeanFactoryTest {
 //        person.info();
 
         BeanLifecycleDemo bean = bf.getBean(BeanLifecycleDemo.class);
+        bf.getBean("name");
         bean.info();
+
 
     }
 }
