@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+        <bean id="greetingBeforeAdvice" class="com.cyl.demo.aop.springAop.CylBeforeAdvice"></bean>
+        <bean id="cylAfterReturningAdvice" class="com.cyl.demo.aop.springAop.CylAfterReturningAdvice"></bean>
+        <bean id="cylMethodInterceptor" class="com.cyl.demo.aop.springAop.CylMethodInterceptor"></bean>
+
+
+        <bean id="target" class="com.cyl.demo.aop.springAop.NativeWaiter"></bean>
+        <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean">
+            <property name="target" ref="target"></property>
+            <property name="interceptorNames">
+                <list>
+                    <value>greetingBeforeAdvice</value>
+                    <value>cylAfterReturningAdvice</value>
+                    <value>cylMethodInterceptor</value>
+                </list>
+            </property>
+            <property name="optimize" value="true"></property>
+
+        </bean>
+
+
+</beans>

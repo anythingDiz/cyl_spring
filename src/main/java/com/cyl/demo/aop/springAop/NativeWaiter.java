@@ -16,4 +16,10 @@ public class NativeWaiter implements Waiter {
     public void serveTo(String name) {
         System.out.println(">> 执行了 serveTo方法");
     }
+
+    @Override
+    public String giveTo(String name) {
+        System.out.println(">> 执行了 giveTo 方法");
+        return "give you a book";
+    }
 }

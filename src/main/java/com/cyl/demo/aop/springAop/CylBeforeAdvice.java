@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
  * @Version V1.0.0
  * @Date 2019/7/1
  */
-public class GreetingBeforeAdvice implements MethodBeforeAdvice {
+public class CylBeforeAdvice implements MethodBeforeAdvice {
 
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {
