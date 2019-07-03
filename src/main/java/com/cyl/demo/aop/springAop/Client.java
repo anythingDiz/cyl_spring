@@ -1,5 +1,7 @@
 package com.cyl.demo.aop.springAop;
 
+import com.cyl.demo.aop.service.NativeWaiter;
+import com.cyl.demo.aop.service.Waiter;
 import org.springframework.aop.BeforeAdvice;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -53,6 +55,7 @@ public class Client {
         String result = waiter.giveTo("caoyulong");
 
         System.out.println(result);
+        waiter.hello("caoyulong");
 
     }
 

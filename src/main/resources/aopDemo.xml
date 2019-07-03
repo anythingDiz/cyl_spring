@@ -11,9 +11,10 @@
         <bean id="greetingBeforeAdvice" class="com.cyl.demo.aop.springAop.CylBeforeAdvice"></bean>
         <bean id="cylAfterReturningAdvice" class="com.cyl.demo.aop.springAop.CylAfterReturningAdvice"></bean>
         <bean id="cylMethodInterceptor" class="com.cyl.demo.aop.springAop.CylMethodInterceptor"></bean>
+        <bean id="cylThrowsAdvice" class="com.cyl.demo.aop.springAop.CylThrowsAdvice"></bean>
 
 
-        <bean id="target" class="com.cyl.demo.aop.springAop.NativeWaiter"></bean>
+        <bean id="target" class="com.cyl.demo.aop.service.NativeWaiter"></bean>
         <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean">
             <property name="target" ref="target"></property>
             <property name="interceptorNames">
@@ -21,6 +22,7 @@
                     <value>greetingBeforeAdvice</value>
                     <value>cylAfterReturningAdvice</value>
                     <value>cylMethodInterceptor</value>
+                    <value>cylThrowsAdvice</value>
                 </list>
             </property>
             <property name="optimize" value="true"></property>

@@ -1,4 +1,6 @@
-package com.cyl.demo.aop.springAop;
+package com.cyl.demo.aop.service;
+
+import com.cyl.demo.aop.aspectJAopDemo.NeedTest;
 
 /**
  * @Description
@@ -12,4 +14,6 @@ public interface Waiter {
     void serveTo(String name);
 
     String giveTo(String name);
+
+    void hello(String name);
 }
